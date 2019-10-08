@@ -15,4 +15,4 @@ Here is a list of motivational posters you can find in the office of Barney Stin
 - Perfection : “It is not good enough to win, everybody else should lose”
 - Strength : “What the mind can conceive, it can achieve"
 
-<img src="https://s.tcdn.co/7da/007/7da00787-9d79-4b11-a016-730c1825c5dc/5.png" width="100" height="100"/>
+<img src="https://s.tcdn.co/7da/007/7da00787-9d79-4b11-a016-730c1825c5dc/5.png" width="300" height="300"/>
