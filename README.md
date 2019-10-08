@@ -15,4 +15,4 @@ Here is a list of motivational posters you can find in the office of Barney Stin
 - Perfection : “It is not good enough to win, everybody else should lose”
 - Strength : “What the mind can conceive, it can achieve"
 
-![](https://cdn.imgbin.com/13/20/0/imgbin-barney-stinson-how-i-met-your-mother-neil-patrick-harris-ted-mosby-robin-scherbatsky-how-i-met-your-mother-nX96CzLZ6HfX0wSqLgDPWFnJH.jpg)
+![](https://cdn.imgbin.com/9/21/15/imgbin-the-bro-code-barney-stinson-how-i-met-your-mother-t-shirt-barney-stinson-6EA4JkZrAjzpAcbDPbPDdrMSY.jpg)
