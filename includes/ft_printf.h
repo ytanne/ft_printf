@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 18:14:35 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/01 10:00:24 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/01 14:23:23 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,10 @@ int				s_spec(va_list ap);
 /*
 **	Other stuff formatting
 */
-/*
-int				n_spec(va_list ap);
+
+//int				n_spec(va_list ap);
 int				p_spec(va_list ap);
-int				pc_spec(va_list ap);
-*/
+//int				pc_spec(va_list ap);
 
 /*
 **	Functions for flags, width, precision and length check
@@ -101,9 +100,9 @@ static t_printp	*g_printable[] =
 	al_spec,
 	*/
 	c_spec,
-	s_spec
-	/*
+	s_spec,
 	p_spec,
+	/*
 	n_spec,
 	pc_spec,*/
 };
@@ -130,6 +129,7 @@ void			init_prst(t_printf **p);
 int				fill_struct(char c, va_list ap);
 int				ft_printf(const char *str, ...);
 int				ft_numlen(int nb, int base);
-int				ft_putnb_base(int value, int base);
+int				ft_putnbr_base(int value, int base);
+int				ft_putaddress_ll(void *address);
 
 #endif

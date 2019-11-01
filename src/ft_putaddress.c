@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_base.c                                          :+:      :+:    :+:   */
+/*   ft_putaddress.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/30 01:20:53 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/01 14:15:08 by yorazaye         ###   ########.fr       */
+/*   Created: 2019/11/01 13:27:59 by yorazaye          #+#    #+#             */
+/*   Updated: 2019/11/01 14:35:55 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-/*
-**	#include "libft.h"
-*/
-
-int		ft_numlen(int nb, int base)
+static int		ft_numlen_ll(unsigned long long int nb, int base)
 {
 	int		l;
 
@@ -35,37 +31,27 @@ int		ft_numlen(int nb, int base)
 	return (l);
 }
 
-int		ft_putnbr_base(int value, int base)
+int				ft_putaddress_ll(void *address)
 {
-	char	*c;
-	int		l;
+	char					*c;
+	int						l;
+	unsigned long long int	value;
 
-	if (base == 10)
-	{
-		c = ft_itoa(value);
-		ft_putstr(c);
-		return (ft_strlen(c));
-	}
-	l = ft_numlen(value, base);
+	value = (unsigned long long int)address;
+	l = ft_numlen_ll(value, 16);
 	c = ft_strnew(l);
 	c[l] = '\0';
 	while (value && (l >= 0))
 	{
-		if (value % base <= 9)
-			c[--l] = value % base + '0';
+		if (value % 16 <= 9)
+			c[--l] = value % 16 + '0';
 		else
-			c[--l] = value % base - 10 + 'a';
-		value /= base;
+			c[--l] = value % 16 - 10 + 'a';
+		value /= 16;
 	}
+	ft_putstr("0x");
 	ft_putstr(c);
+	ft_putchar('\n');
 	ft_strdel(&c);
 	return (l);
 }
-
-/*
-**	int			main(void)
-**	{
-**		ft_putnb_base(2147483647, );
-**		return (0);
-**	}
-*/

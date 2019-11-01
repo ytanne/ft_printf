@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/30 21:48:32 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/10/31 16:35:33 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/01 11:31:24 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,15 @@
 
 int				main(void)
 {
-	char *str = "He%s W\\rld of %+-0d. OK%c\n";
+	int		a;
+	char	*str = "He%s W\\rld of %+-0d. OK%c\n";
+
+	a = 1;
 	ft_printf(str, "llo", 42, 63);
+	ft_printf("----------------\n");
+	ft_printf("Printing memory stuff\n");
+	printf("Real: %p\n", (void *)&a);
+	ft_printf("Mine: %p\n", (void *)&a);
 	ft_printf("----------------\n");
 	printf ("Real - Characters: %c %c \n", 'a', 65);
 	ft_printf ("Mine - Characters: %c %c \n", 'a', 65);

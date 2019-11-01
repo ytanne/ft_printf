@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   string_spec.c                                      :+:      :+:    :+:   */
+/*   scdi_spec.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 23:37:03 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/10/31 18:55:44 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/01 14:22:38 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,12 @@ int		i_spec(va_list ap)
 	i = va_arg(ap, signed int);
 	ft_putnbr(i);
 	return (ft_numlen(i, 10));
+}
+
+int		p_spec(va_list ap)
+{
+	void	*b;
+	
+	b = va_arg(ap, void *);
+	return (ft_putaddress_ll(b));
 }

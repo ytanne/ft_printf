@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_struct.c                                 :+:      :+:    :+:   */
+/*   ft_init.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 21:27:05 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/01 10:41:45 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/01 11:33:45 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int				assign_specifier(char c)
 
 	i = -1;
 	//s = "diouxXfFeEgGaAcspnP";
-	s = "dioxcs";
+	s = "dioxcsp";
 	while (s[++i])
 		if (s[i] == c)
 			return (i);
