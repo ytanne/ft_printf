@@ -6,13 +6,13 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 21:27:05 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/01 11:33:45 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/01 14:42:17 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		init_prst(t_printf **p)
+void			init_prst(t_printf **p)
 {
 	(*p)->f_minus = 0;
 	(*p)->f_plus = 0;
@@ -39,7 +39,9 @@ int				assign_specifier(char c)
 	int		i;
 
 	i = -1;
-	//s = "diouxXfFeEgGaAcspnP";
+	/*
+	**	s = "diouxXfFeEgGaAcspnP";
+	*/
 	s = "dioxcsp";
 	while (s[++i])
 		if (s[i] == c)
@@ -52,7 +54,6 @@ int				fill_struct(char c, va_list ap)
 	int		i;
 
 	i = assign_specifier(c);
-	//(*p)->str = va_arg(ap, char *);
 	g_printable[i](ap);
 	return (1);
 }

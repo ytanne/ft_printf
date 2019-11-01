@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 23:37:03 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/01 14:22:38 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/01 14:39:28 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int		i_spec(va_list ap)
 int		p_spec(va_list ap)
 {
 	void	*b;
-	
+
 	b = va_arg(ap, void *);
 	return (ft_putaddress_ll(b));
 }
