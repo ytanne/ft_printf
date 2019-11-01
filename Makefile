@@ -6,7 +6,7 @@
 #    By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/27 18:05:44 by yorazaye          #+#    #+#              #
-#    Updated: 2019/10/30 21:50:15 by yorazaye         ###   ########.fr        #
+#    Updated: 2019/11/01 10:04:37 by yorazaye         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,13 +18,13 @@ INC = includes
 
 OUT = bin
 
-F_N = ft_printf ft_printf_struct string_spec main
+F_N = ft_printf ft_printf_struct ft_base string_spec fwpl_check fwpl_assign uox_spec main
 
 F_H = ft_printf.h
 
 F_C = $(patsubst %, $(SRC)/%, $(addsuffix .c, $(F_N)))
 
-F_O = $(patsubst %, $(OUT)/%, $(addsuffix .o, $(F_N)))
+F_O = $(addsuffix .o, $(F_N))
 
 all: $(NAME)
 

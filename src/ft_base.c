@@ -6,17 +6,24 @@
 /*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/30 01:20:53 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/10/30 21:37:07 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/10/31 16:33:44 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
+//#include "libft.h"
 
-static int	ft_numlen(int nb, int base)
+int		ft_numlen(int nb, int base)
 {
 	int		l;
 
-	l = 0;
+	if (nb <= 0)
+	{
+		l = 1;
+		nb *= -1;
+	}
+	else
+		l = 0;
 	while (nb)
 	{
 		l++;
@@ -25,11 +32,17 @@ static int	ft_numlen(int nb, int base)
 	return (l);
 }
 
-void		ft_putnb_base(int value, int base)
+int		ft_putnb_base(int value, int base)
 {
 	char	*c;
 	int		l;
 
+	if (base == 10)
+	{
+		c = ft_itoa(value);
+		ft_putstr(c);
+		return (ft_strlen(c));
+	}
 	l = ft_numlen(value, base);
 	c = ft_strnew(l);
 	c[l] = '\0';
@@ -40,10 +53,11 @@ void		ft_putnb_base(int value, int base)
 	}
 	ft_putstr(c);
 	ft_strdel(&c);
+	return (l);
 }
-
+/*
 int			main(void)
 {
-	ft_putnb_base(140, 8);
+	ft_putnb_base(2147483647, );
 	return (0);
-}
+}*/

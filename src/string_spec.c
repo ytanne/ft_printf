@@ -6,7 +6,7 @@
 /*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 23:37:03 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/10/30 00:38:22 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/10/31 18:55:44 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int		d_spec(va_list ap)
 
 	i = va_arg(ap, signed int);
 	ft_putnbr(i);
-	return (1);
+	return (ft_numlen(i, 10));
 }
 
 int		i_spec(va_list ap)
@@ -46,5 +46,5 @@ int		i_spec(va_list ap)
 
 	i = va_arg(ap, signed int);
 	ft_putnbr(i);
-	return (1);
+	return (ft_numlen(i, 10));
 }

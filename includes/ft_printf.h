@@ -6,7 +6,7 @@
 /*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 18:14:35 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/10/31 09:55:55 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/01 10:00:24 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,19 @@
 
 typedef struct	s_printf
 {
-	char			specifier;
-	char			*str;
-	struct s_printf	*next;
+	int			f_minus;
+	int			f_plus;
+	int			f_space;
+	int			f_hash;
+	int			f_zero;
+	int			w;
+	int			p;
+	int			l;
 }				t_printf;
 
+void			fsearch_prst(t_printf **t, char c);
 typedef int		t_printp(va_list ap);
+typedef int		t_fwpl(char *c, t_printf **t);
 
 /*
 **	Number formatting
@@ -33,9 +40,9 @@ typedef int		t_printp(va_list ap);
 int				d_spec(va_list ap);
 int				i_spec(va_list ap);
 int				o_spec(va_list ap);
-/*
 int				u_spec(va_list ap);
 int				x_spec(va_list ap);
+/*
 int				xl_spec(va_list ap);
 int				f_spec(va_list ap);
 int				fl_spec(va_list ap);
@@ -61,18 +68,28 @@ int				n_spec(va_list ap);
 int				p_spec(va_list ap);
 int				pc_spec(va_list ap);
 */
+
 /*
-**	Function dispatch table
+**	Functions for flags, width, precision and length check
+*/
+
+int				fl_check(char *c, t_printf **t);
+int				w_check(char *c, t_printf **t);
+int				p_check(char *c, t_printf **t);
+int				l_check(char *c, t_printf **t);
+
+/*
+**	Function dispatch table for specifiers
 */
 
 static t_printp	*g_printable[] =
 {
 	d_spec,
 	i_spec,
-	/*
 	o_spec,
-	u_spec,
+	//u_spec,
 	x_spec,
+	/*
 	xl_spec,
 	f_spec,
 	fl_spec,
@@ -92,11 +109,27 @@ static t_printp	*g_printable[] =
 };
 
 /*
+**	Function dispatch table for flags, width, precision and length
+*/
+
+static t_fwpl *g_fwpl[] =
+{
+	fl_check/*,
+	w_check,
+	p_check,
+	l_check
+	*/
+};
+
+/*
 **	Data structure functions
 */
 
 t_printf		*new_prst(void);
+void			init_prst(t_printf **p);
 int				fill_struct(char c, va_list ap);
 int				ft_printf(const char *str, ...);
+int				ft_numlen(int nb, int base);
+int				ft_putnb_base(int value, int base);
 
 #endif

@@ -1,43 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   fwpl_assign.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/28 17:31:14 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/01 09:26:20 by yorazaye         ###   ########.fr       */
+/*   Created: 2019/11/01 10:03:48 by yorazaye          #+#    #+#             */
+/*   Updated: 2019/11/01 10:04:19 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "ft_printf.h"
 
-int				ft_printf(const char *str, ...)
+void		fsearch_prst(t_printf **t, char c)
 {
-	va_list		ap;
-	int			i;
-	int			sh;
-	t_printf	*t;
-
-	t = new_prst();
-	va_start(ap, str);
-	while (*str)
-	{
-		if (*str == '%')
-		{
-			init_prst(&t);
-			i = 0;
-			while (i < 1)
-				if ((sh = g_fwpl[i++]((char *)(str), &t)))
-					str += sh;
-			fill_struct(*(++str), ap);
-		}
-		else
-			ft_putchar(*str);
-		str++;
-	}
-	ft_memdel((void **)&t);
-	va_end(ap);
-	return (0);
+	if (c == '-' && (*t)->f_minus == 0)
+		(*t)->f_minus = 1;
+	else if (c == '+' && (*t)->f_plus == 0)
+		(*t)->f_minus = 1;
+	else if (c == ' ' && (*t)->f_space == 0)
+		(*t)->f_minus = 1;
+	else if (c == '#' && (*t)->f_hash == 0)
+		(*t)->f_minus = 1;
+	else if (c == '0' && (*t)->f_zero == 0)
+		(*t)->f_minus = 1;
 }
