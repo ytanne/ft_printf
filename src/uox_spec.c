@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/31 12:42:08 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/01 11:55:50 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/01 15:05:50 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		o_spec(va_list ap)
 	int	r;
 
 	r = 1;
-	ft_putnbr_base(va_arg(ap, unsigned int), 8);
+	ft_putnbr_base(va_arg(ap, unsigned int), 8, 0);
 	return (r);
 }
 
@@ -26,7 +26,16 @@ int		x_spec(va_list ap)
 	int	r;
 
 	r = 1;
-	ft_putnbr_base(va_arg(ap, unsigned int), 16);
+	ft_putnbr_base(va_arg(ap, unsigned int), 16, 0);
+	return (r);
+}
+
+int		xl_spec(va_list ap)
+{
+	int	r;
+
+	r = 1;
+	ft_putnbr_base(va_arg(ap, unsigned int), 16, 1);
 	return (r);
 }
 
@@ -35,6 +44,6 @@ int		u_spec(va_list ap)
 	int	r;
 
 	r = 1;
-	ft_putnbr_base(va_arg(ap, unsigned int), 16);
+	ft_putnbr_base(va_arg(ap, unsigned int), 16, 0);
 	return (r);
 }

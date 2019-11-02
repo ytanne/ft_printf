@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 21:27:05 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/01 14:42:17 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/01 14:47:59 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int				assign_specifier(char c)
 	/*
 	**	s = "diouxXfFeEgGaAcspnP";
 	*/
-	s = "dioxcsp";
+	s = "dioxXcsp";
 	while (s[++i])
 		if (s[i] == c)
 			return (i);

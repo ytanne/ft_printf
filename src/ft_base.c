@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/30 01:20:53 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/01 14:15:08 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/01 15:05:10 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int		ft_numlen(int nb, int base)
 	return (l);
 }
 
-int		ft_putnbr_base(int value, int base)
+int		ft_putnbr_base(int value, int base, int xl)
 {
 	char	*c;
 	int		l;
@@ -44,17 +44,17 @@ int		ft_putnbr_base(int value, int base)
 	{
 		c = ft_itoa(value);
 		ft_putstr(c);
-		return (ft_strlen(c));
+		l = ft_strlen(c);
+		ft_strdel(&c);
+		return (l);
 	}
 	l = ft_numlen(value, base);
 	c = ft_strnew(l);
 	c[l] = '\0';
 	while (value && (l >= 0))
 	{
-		if (value % base <= 9)
-			c[--l] = value % base + '0';
-		else
-			c[--l] = value % base - 10 + 'a';
+		c[--l] = (value % base <= 9) ? value % base + '0' :\
+		value % base - 10 + ('a' - xl * 32);
 		value /= base;
 	}
 	ft_putstr(c);

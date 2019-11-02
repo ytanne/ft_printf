@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/30 21:48:32 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/01 11:31:24 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/01 15:00:21 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ int				main(void)
 	ft_printf("----------------\n");
 	printf ("Real - Preceding with zeros: %010d \n", 1977);
 	ft_printf("----------------\n");
-	printf ("Real - Some different radices: %d %x %o %#x %#o \n", 100, 13, 100, 100, 100);
-	printf ("Mine - Some different radices: %d %x %o -- --\n", 100, 13, 100, 100, 100);
+	printf ("Real - Some different radices: %d %X %o %#x %#o \n", 100, 13, 100, 100, 100);
+	printf ("Mine - Some different radices: %d %X %o -- --\n", 100, 13, 100, 100, 100);
 	ft_printf("----------------\n");
 	printf ("Real - floats: %4.2f %+.0e %E \n", 3.1416, 3.1416, 3.1416);
 	ft_printf("----------------\n");
