@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/30 21:48:32 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/02 23:36:43 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/03 14:10:33 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ int				main(void)
 	ft_printf("Mine - Some different radices: %d %X %o -- --\n", 100, 13, 100);
 	ft_printf("----------------\n");
 	//printf ("Real - floats: %4.2f %+.0e %E \n", 3.1416, 3.1416, 3.1416);
-	printf ("Real - floats: %f\n", 3.1416);
-	ft_printf("Mine - floats: %f\n", 3.1416);
+	printf ("Real - floats: %f\n", 3.141614168);
+	ft_printf("Mine - floats: %f\n", 3.141614168);
 	ft_printf("----------------\n");
 	printf ("Real - Width trick: %*d \n", 5, 10);
 	ft_printf("----------------\n");
