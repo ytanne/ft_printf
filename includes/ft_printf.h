@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 18:14:35 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/01 15:04:47 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/02 23:37:42 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ int				o_spec(va_list ap);
 int				u_spec(va_list ap);
 int				x_spec(va_list ap);
 int				xl_spec(va_list ap);
-/*
 int				f_spec(va_list ap);
+/*
 int				fl_spec(va_list ap);
 int				e_spec(va_list ap);
 int				el_spec(va_list ap);
@@ -89,8 +89,8 @@ static t_printp	*g_printable[] =
 	//u_spec,
 	x_spec,
 	xl_spec,
-	/*
 	f_spec,
+	/*
 	fl_spec,
 	e_spec,
 	el_spec,
@@ -131,5 +131,7 @@ int				ft_printf(const char *str, ...);
 int				ft_numlen(int nb, int base);
 int				ft_putnbr_base(int value, int base, int c);
 int				ft_putaddress_ll(void *address);
+int				ft_putfloat(float nbr, int afterpoint);
+int				ft_putdouble(double nbr, int afterpoint);
 
 #endif

@@ -6,15 +6,11 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/30 01:20:53 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/01 15:05:10 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/02 23:22:26 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-/*
-**	#include "libft.h"
-*/
 
 int		ft_numlen(int nb, int base)
 {
@@ -61,11 +57,3 @@ int		ft_putnbr_base(int value, int base, int xl)
 	ft_strdel(&c);
 	return (l);
 }
-
-/*
-**	int			main(void)
-**	{
-**		ft_putnb_base(2147483647, );
-**		return (0);
-**	}
-*/
