@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/30 21:48:32 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/03 14:10:33 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/03 16:26:54 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,14 @@ int				main(void)
 
 	a = 1;
 	ft_printf(str, "llo", 42, 63);
+	ft_printf("----------------\n");
+	printf("Real: check of sign %+d and %+s\n", 12, "12");
+	ft_printf("----------------\n");
+	printf("Real: unsigned int %u\n", 4294967295);
+	ft_printf("Mine: unsinged int %u\n", 4294967295);
+	ft_printf("----------------\n");
+	printf("Real: percentage %%\n");
+	ft_printf("Mine: percantage %%\n");
 	ft_printf("----------------\n");
 	ft_printf("Printing memory stuff\n");
 	printf("Real: %p\n", (void *)&a);
@@ -35,7 +43,7 @@ int				main(void)
 	printf ("Real - Preceding with zeros: %010d \n", 1977);
 	ft_printf("----------------\n");
 	printf ("Real - Some different radices: %d %X %o %#x %#o \n", 100, 13, 100, 100, 100);
-	ft_printf("Mine - Some different radices: %d %X %o -- --\n", 100, 13, 100);
+	ft_printf("Mine - Some different radices: %d %x %o -- --\n", 100, 13, 100);
 	ft_printf("----------------\n");
 	//printf ("Real - floats: %4.2f %+.0e %E \n", 3.1416, 3.1416, 3.1416);
 	printf ("Real - floats: %f\n", 3.141614168);

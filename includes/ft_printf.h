@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 18:14:35 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/03 00:24:20 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/03 16:53:18 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,13 @@ int				s_spec(va_list ap);
 */
 
 //int				n_spec(va_list ap);
+
+/*
+**	Address and percentage printing. Located in ft_putaddress.c
+*/
+
 int				p_spec(va_list ap);
-//int				pc_spec(va_list ap);
+int				pc_spec(va_list ap);
 
 /*
 **	Functions for flags, width, precision and length check
@@ -86,7 +91,7 @@ static t_printp	*g_printable[] =
 	d_spec,
 	i_spec,
 	o_spec,
-	//u_spec,
+	u_spec,
 	x_spec,
 	xl_spec,
 	f_spec,
@@ -102,9 +107,8 @@ static t_printp	*g_printable[] =
 	c_spec,
 	s_spec,
 	p_spec,
-	/*
-	n_spec,
-	pc_spec,*/
+	//n_spec,
+	pc_spec
 };
 
 /*
@@ -128,10 +132,11 @@ t_printf		*new_prst(void);
 void			init_prst(t_printf **p);
 int				fill_struct(char c, va_list ap);
 int				ft_printf(const char *str, ...);
-int				ft_numlen(int nb, int base);
-int				ft_putnbr_base(int value, int base, int c);
+int				ft_numlen(unsigned int nb, int base);
+int				ft_putnbr_base(unsigned int value, int base, int c);
 int				ft_putaddress_ll(void *address);
 int				ft_putfloat(float nbr, int afterpoint);
 int				ft_putdouble(double nbr, int afterpoint);
+int				ft_putnbr_u(unsigned int value, int xl);
 
 #endif

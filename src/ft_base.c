@@ -6,13 +6,13 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/30 01:20:53 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/02 23:22:26 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/03 15:45:38 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_numlen(int nb, int base)
+int		ft_numlen(unsigned int nb, int base)
 {
 	int		l;
 
@@ -31,7 +31,7 @@ int		ft_numlen(int nb, int base)
 	return (l);
 }
 
-int		ft_putnbr_base(int value, int base, int xl)
+int		ft_putnbr_base(unsigned int value, int base, int xl)
 {
 	char	*c;
 	int		l;
@@ -52,6 +52,24 @@ int		ft_putnbr_base(int value, int base, int xl)
 		c[--l] = (value % base <= 9) ? value % base + '0' :\
 		value % base - 10 + ('a' - xl * 32);
 		value /= base;
+	}
+	ft_putstr(c);
+	ft_strdel(&c);
+	return (l);
+}
+
+int		ft_putnbr_u(unsigned int value, int xl)
+{
+	char	*c;
+	int		l;
+
+	l = ft_numlen(value, 10);
+	c = ft_strnew(l);
+	c[l] = '\0';
+	while (value && (l >= 0))
+	{
+		c[--l] = value % 10 + '0';
+		value /= 10;
 	}
 	ft_putstr(c);
 	ft_strdel(&c);
