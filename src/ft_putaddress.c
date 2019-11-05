@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 13:27:59 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/03 15:57:57 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/03 23:32:26 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int				ft_putaddress_ll(void *address)
 	return (l);
 }
 
-int				pc_spec(va_list ar)
+int				pc_spec(va_list ar, t_printf *t)
 {
 	ft_putchar('%');
 	return (1);

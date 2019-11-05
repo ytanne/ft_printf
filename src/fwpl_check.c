@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/31 15:18:11 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/03 16:31:54 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/04 16:52:59 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,25 @@ int		fl_check(char *c, t_printf **t)
 	}
 	return (r);
 }
-/*
-int		w_check(char c, int fl)
-{
-	if (ft_isdigit((int)c) || (c == '*'))
-		return (1);
-	return (0);
-}
 
+int		w_check(char *c, t_printf **t)
+{
+	int		width;
+	int		r;
+
+	width = 0;
+	r = 0;
+	c++;
+	while (ft_isdigit(*c))
+	{
+		width = width * 10 + (*(c++) - '0');
+		r++;
+	}
+	if (width != 0)
+		(*t)->w = width;
+	return (r);
+}
+/*
 int		p_check(char c, int fl)
 {
 	if (ft_isdigit((int)c) || (c == '*'))

@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 21:27:05 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/03 16:54:10 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/03 23:28:59 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,11 @@ int				assign_specifier(char c)
 	return (-1);
 }
 
-int				fill_struct(char c, va_list ap)
+int				fill_struct(char c, va_list ap, t_printf *t)
 {
 	int		i;
 
 	i = assign_specifier(c);
-	g_printable[i](ap);
+	g_printable[i](ap, t);
 	return (1);
 }

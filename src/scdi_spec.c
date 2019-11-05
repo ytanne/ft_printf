@@ -6,23 +6,27 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 23:37:03 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/01 14:54:21 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/04 15:21:13 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-int		s_spec(va_list ap)
+int		s_spec(va_list ap, t_printf *t)
 {
 	char	*str;
 
-	str = va_arg(ap, char *);
+	if (!(str = va_arg(ap, char *)))
+	{
+		ft_putstr("(null)");
+		return (6);
+	}
 	ft_putstr(str);
 	return (ft_strlen(str));
 }
 
-int		c_spec(va_list ap)
+int		c_spec(va_list ap, t_printf *t)
 {
 	char	c;
 
@@ -31,25 +35,29 @@ int		c_spec(va_list ap)
 	return (1);
 }
 
-int		d_spec(va_list ap)
+int		d_spec(va_list ap, t_printf *t)
 {
 	int		i;
 
 	i = va_arg(ap, signed int);
+	if (t->f_plus == 1 && i >= 0)
+		ft_putchar('+');
 	ft_putnbr(i);
 	return (ft_numlen(i, 10));
 }
 
-int		i_spec(va_list ap)
+int		i_spec(va_list ap, t_printf *t)
 {
 	int		i;
 
 	i = va_arg(ap, signed int);
+	if (t->f_plus == 1 && i > 0)
+		ft_putchar('+');
 	ft_putnbr(i);
 	return (ft_numlen(i, 10));
 }
 
-int		p_spec(va_list ap)
+int		p_spec(va_list ap, t_printf *t)
 {
 	void	*b;
 

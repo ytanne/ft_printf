@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 17:19:37 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/03 14:09:45 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/04 00:01:51 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ int				ft_putfloat(float n, int afterpoint)
 	temp = afterpoint;
 	first = (int)n;
 	fl = 0;
-	remainder = n - (float)first;
+	if ((remainder = n - (float)first) < 0)
+		remainder *= -1;
 	ft_putnbr(first);
 	if (afterpoint == 0)
 		return (ft_numlen(first, 10));
@@ -59,7 +60,8 @@ int				ft_putdouble(double n, int afterpoint)
 
 	temp = afterpoint;
 	first = (int)n;
-	remainder = n - (double)first;
+	if ((remainder = n - (float)first) < 0)
+		remainder *= -1;
 	remainder = ft_roundup(remainder, afterpoint);
 	ft_putnbr(first);
 	if (afterpoint == 0)

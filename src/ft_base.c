@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/30 01:20:53 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/03 15:45:38 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/04 10:53:53 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int		ft_putnbr_base(unsigned int value, int base, int xl)
 	l = ft_numlen(value, base);
 	c = ft_strnew(l);
 	c[l] = '\0';
-	while (value && (l >= 0))
+	while (l >= 0)
 	{
 		c[--l] = (value % base <= 9) ? value % base + '0' :\
 		value % base - 10 + ('a' - xl * 32);
@@ -66,7 +66,7 @@ int		ft_putnbr_u(unsigned int value, int xl)
 	l = ft_numlen(value, 10);
 	c = ft_strnew(l);
 	c[l] = '\0';
-	while (value && (l >= 0))
+	while (l >= 0)
 	{
 		c[--l] = value % 10 + '0';
 		value /= 10;
