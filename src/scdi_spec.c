@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 23:37:03 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/04 15:21:13 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/04 19:38:17 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,14 @@ int		c_spec(va_list ap, t_printf *t)
 int		d_spec(va_list ap, t_printf *t)
 {
 	int		i;
+	int		sp;
+	char	fill;
 
 	i = va_arg(ap, signed int);
+	sp = t->w - ft_numlen(i, 10) - t->f_plus;
+	fill = (t->f_zero) ? '0' : ' ';
+	while (sp-- > 0)
+		ft_putchar(fill);
 	if (t->f_plus == 1 && i >= 0)
 		ft_putchar('+');
 	ft_putnbr(i);
@@ -49,8 +55,14 @@ int		d_spec(va_list ap, t_printf *t)
 int		i_spec(va_list ap, t_printf *t)
 {
 	int		i;
+	int		sp;
+	char	fill;
 
 	i = va_arg(ap, signed int);
+	sp = t->w - ft_numlen(i, 10) - t->f_plus;
+	fill = (t->f_zero) ? '0' : ' ';
+	while (sp-- > 0)
+		ft_putchar(fill);
 	if (t->f_plus == 1 && i > 0)
 		ft_putchar('+');
 	ft_putnbr(i);
@@ -60,7 +72,17 @@ int		i_spec(va_list ap, t_printf *t)
 int		p_spec(va_list ap, t_printf *t)
 {
 	void	*b;
+	int		sp;
+	char	fill;
 
+	sp = t->w - 14 - t->f_plus;
+	fill = (t->f_zero) ? '0' : ' ';
+	if (t->f_zero)
+		ft_putstr("0x");
+	while (sp-- > 0)
+		ft_putchar(fill);
+	if (!t->f_zero)
+		ft_putstr("0x");
 	b = va_arg(ap, void *);
 	return (ft_putaddress_ll(b));
 }

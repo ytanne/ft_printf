@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 13:27:59 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/03 23:32:26 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/04 19:47:42 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ int				ft_putaddress_ll(void *address)
 			c[--l] = value % 16 - 10 + 'a';
 		value /= 16;
 	}
-	ft_putstr("0x");
 	ft_putstr(c);
 	ft_strdel(&c);
 	return (l);
@@ -57,6 +56,13 @@ int				ft_putaddress_ll(void *address)
 
 int				pc_spec(va_list ar, t_printf *t)
 {
+	int		sp;
+	char	fill;
+
+	sp = t->w - 1 - t->f_plus;
+	fill = (t->f_zero) ? '0' : ' ';
+	while (sp-- > 0)
+		ft_putchar(fill);
 	ft_putchar('%');
 	return (1);
 }

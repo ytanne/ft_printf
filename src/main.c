@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/30 21:48:32 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/04 17:01:17 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/04 19:48:27 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,11 @@ int				main(void)
 	a = 1;
 	ft_printf(str, "llo", -42, 63);
 	ft_printf("----------------\n");
-	printf("Real: width test %5d\n", 18);
-	ft_printf("Real: width test %5i\n", 18);
+	printf("Test of percent is %10% and %d\n", 42);
+	ft_printf("Test of percent is %10% and %d\n", 42);
+	ft_printf("----------------\n");
+	printf("Real: width test %05d\n", 18);
+	ft_printf("Test: width test %05d\n", 18);
 	ft_printf("----------------\n");
 	printf("Real: test of width %s. Hello\n", 0);
 	ft_printf("Mine: test of width %s. Hello\n", 0);
@@ -45,8 +48,8 @@ int				main(void)
 	ft_printf("Mine: percantage %%\n");
 	ft_printf("----------------\n");
 	ft_printf("Printing memory stuff\n");
-	printf("Real: %p\n", (void *)&a);
-	ft_printf("Mine: %p\n", (void *)&a);
+	printf("Real: %020p\n", (void *)&a);
+	ft_printf("Mine: %020p\n", (void *)&a);
 	ft_printf("----------------\n");
 	printf ("Real - Characters: %c %c \n", 'a', 65);
 	ft_printf ("Mine - Characters: %c %c \n", 'a', 65);
