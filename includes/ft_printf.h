@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 18:14:35 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/04 16:39:23 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/04 20:37:20 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,5 +138,6 @@ int				ft_putaddress_ll(void *address);
 int				ft_putfloat(float nbr, int afterpoint);
 int				ft_putdouble(double nbr, int afterpoint);
 int				ft_putnbr_u(unsigned int value, int xl);
+void			deal_width(int l, t_printf *t);
 
 #endif

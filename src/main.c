@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/30 21:48:32 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/04 19:48:27 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/04 20:20:01 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ int				main(void)
 	printf("Real: width test %05d\n", 18);
 	ft_printf("Test: width test %05d\n", 18);
 	ft_printf("----------------\n");
-	printf("Real: test of width %s. Hello\n", 0);
-	ft_printf("Mine: test of width %s. Hello\n", 0);
+	printf("Real: test of width %015s. Hello\n", 0);
+	ft_printf("Mine: test of width %015s. Hello\n", 0);
 	ft_printf("----------------\n");
 	printf("Real: test # for octal %#o for %o\n", 12, 12);
 	ft_printf("Mine: test # for octal %#o for %o\n", 12, 12);

@@ -6,7 +6,7 @@
 #    By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/27 18:05:44 by yorazaye          #+#    #+#              #
-#    Updated: 2019/11/02 23:40:56 by yorazaye         ###   ########.fr        #
+#    Updated: 2019/11/04 20:37:33 by yorazaye         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ INC = includes
 OUT = bin
 
 F_N = ft_printf ft_init ft_base scdi_spec fwpl_check fwpl_assign uox_spec\
-		ft_putaddress ft_putfloat float_spec main
+		ft_putaddress ft_putfloat float_spec width_deal main
 
 F_H = ft_printf.h
 
