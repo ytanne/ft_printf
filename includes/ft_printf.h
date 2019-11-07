@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 18:14:35 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/04 20:37:20 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/05 19:22:12 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,8 +118,8 @@ static t_printp	*g_printable[] =
 static t_fwpl *g_fwpl[] =
 {
 	fl_check,
-	w_check/*,
-	p_check,
+	w_check,
+	p_check/*,
 	l_check
 	*/
 };

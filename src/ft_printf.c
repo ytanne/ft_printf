@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/28 17:31:14 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/04 16:37:34 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/05 19:24:38 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int				ft_printf(const char *str, ...)
 		{
 			init_prst(&t);
 			i = 0;
-			while (i < 2)
+			while (i < 3)
 				if ((sh = g_fwpl[i++]((char *)(str), &t)))
 					str += sh;
 			fill_struct(*(++str), ap, t);

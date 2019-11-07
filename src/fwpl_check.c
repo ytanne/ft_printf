@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/31 15:18:11 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/04 19:21:25 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/05 19:22:50 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,29 @@ int		w_check(char *c, t_printf **t)
 		(*t)->w = width;
 	return (r);
 }
-/*
-int		p_check(char c, int fl)
+
+int		p_check(char *c, t_printf **t)
 {
-	if (ft_isdigit((int)c) || (c == '*'))
-		return (1);
-	return (0);
+	int		precision;
+	int		r;
+
+	precision = 0;
+	c++;
+	if (*c != '.')
+		return (0);
+	c++;
+	r = 1;
+	while (ft_isdigit(*c))
+	{
+		precision = precision * 10 + (*(c++) - '0');
+		r++;
+	}
+	if (precision != 0)
+		(*t)->p = precision;
+	return (r);
 }
 
+/*
 int		l_check(char c, int fl)
 {
 	char	*flags;
