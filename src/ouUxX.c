@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   width_deal.c                                       :+:      :+:    :+:   */
+/*   ouxX.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/04 20:35:05 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/05 22:03:19 by yorazaye         ###   ########.fr       */
+/*   Created: 2019/11/08 15:20:59 by yorazaye          #+#    #+#             */
+/*   Updated: 2019/11/08 15:21:08 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		deal_width(int l, t_printf *t)
+int				o_spec(va_list av, t_print *t)
 {
-	int		sp;
-	int		prc;
-	char	fill;
+    return (1);
+}
 
-	prc = t->p - l;
-	sp = (t->p) ? t->w - l - t->f_plus - prc :\
-	t->w - l - t->f_plus;
-	fill = (t->f_zero && (t->p < 0)) ? '0' : ' ';
-	while (sp-- > 0)
-		ft_putchar(fill);
-	if (t->f_plus == 1)
-		ft_putchar('+');
-	while (prc-- > 0)
-		ft_putchar('0');
+int				u_spec(va_list av, t_print *t)
+{
+    return (1);
+}
+
+int				U_spec(va_list av, t_print *t)
+{
+    return (1);
+}
+
+int				x_spec(va_list av, t_print *t)
+{
+    return (1);
+}
+
+int				X_spec(va_list av, t_print *t)
+{
+    return (1);
 }

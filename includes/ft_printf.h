@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 18:14:35 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/05 19:22:12 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/12 12:02:48 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,127 +17,98 @@
 # include <stdarg.h>
 # include <stdlib.h>
 
-typedef struct	s_printf
+/*
+**	Flags width precision length checks
+*/
+
+typedef struct		s_print
 {
-	int			f_minus;
-	int			f_plus;
-	int			f_space;
-	int			f_hash;
-	int			f_zero;
-	int			w;
-	int			p;
-	int			l;
-}				t_printf;
+	int				f_m;
+	int				f_p;
+	int				f_s;
+	int				f_h;
+	int				f_z;
+	int				w_n;
+	int				p_n;
+	int				s_l;
+}					t_print;
 
-void			fsearch_prst(t_printf **t, char c);
-typedef int		t_printp(va_list ap, t_printf *t);
-typedef int		t_fwpl(char *c, t_printf **t);
+typedef int			t_fwpl(char *str, t_print **t);
 
-/*
-**	Number formatting
-*/
+int					flag_check(char *str, t_print **t);
+int					width_check(char *str, t_print **t);
+int					precision_check(char *str, t_print **t);
+int					length_check(char *str, t_print **t);
 
-int				d_spec(va_list ap, t_printf *t);
-int				i_spec(va_list ap, t_printf *t);
-int				o_spec(va_list ap, t_printf *t);
-int				u_spec(va_list ap, t_printf *t);
-int				x_spec(va_list ap, t_printf *t);
-int				xl_spec(va_list ap, t_printf *t);
-int				f_spec(va_list ap, t_printf *t);
-/*
-int				fl_spec(va_list ap, t_printf *t);
-int				e_spec(va_list ap, t_printf *t);
-int				el_spec(va_list ap, t_printf *t);
-int				g_spec(va_list ap, t_printf *t);
-int				gl_spec(va_list ap, t_printf *t);
-int				a_spec(va_list ap, t_printf *t);
-int				al_spec(va_list ap, t_printf *t);
-*/
-/*
-**	Text formatting
-*/
-
-int				c_spec(va_list ap, t_printf *t);
-int				s_spec(va_list ap, t_printf *t);
-
-/*
-**	Other stuff formatting
-*/
-
-//int				n_spec(va_list ap, t_printf *t);
-
-/*
-**	Address and percentage printing. Located in ft_putaddress.c
-*/
-
-int				p_spec(va_list ap, t_printf *t);
-int				pc_spec(va_list ap, t_printf *t);
-
-/*
-**	Functions for flags, width, precision and length check
-*/
-
-int				fl_check(char *c, t_printf **t);
-int				w_check(char *c, t_printf **t);
-int				p_check(char *c, t_printf **t);
-int				l_check(char *c, t_printf **t);
-
-/*
-**	Function dispatch table for specifiers
-*/
-
-static t_printp	*g_printable[] =
+static t_fwpl		*g_fwpl[] =
 {
-	d_spec,
-	i_spec,
-	o_spec,
-	u_spec,
-	x_spec,
-	xl_spec,
-	f_spec,
-	/*
-	fl_spec,
-	e_spec,
-	el_spec,
-	g_spec,
-	gl_spec,
-	a_spec,
-	al_spec,
-	*/
+	flag_check,
+	width_check,
+	precision_check,
+	length_check
+};
+
+/*
+**	Specifiers check
+*/
+
+typedef int			t_specifier(va_list av, t_print *t);
+
+int					c_spec(va_list av, t_print *t);
+int					s_spec(va_list av, t_print *t);
+int					di_spec(va_list av, t_print *t);
+int					D_spec(va_list av, t_print *t);
+int					o_spec(va_list av, t_print *t);
+int					u_spec(va_list av, t_print *t);
+int					U_spec(va_list av, t_print *t);
+int					x_spec(va_list av, t_print *t);
+int					X_spec(va_list av, t_print *t);
+int					f_spec(va_list av, t_print *t);
+int					pr_spec(va_list av, t_print *t);
+
+/*
+**	Second 'd_spec' is for 'i' specifier. Because 'i' specifier acts in the
+**	same way as 'd' specifier.
+*/
+
+static t_specifier	*g_f_table[] =
+{
 	c_spec,
 	s_spec,
-	p_spec,
-	//n_spec,
-	pc_spec
+	di_spec,
+	D_spec,
+	di_spec,
+	o_spec,
+	u_spec,
+	U_spec,
+	x_spec,
+	X_spec,
+	f_spec,
+	pr_spec
 };
 
 /*
-**	Function dispatch table for flags, width, precision and length
+**	General functions
 */
 
-static t_fwpl *g_fwpl[] =
-{
-	fl_check,
-	w_check,
-	p_check/*,
-	l_check
-	*/
-};
+int					ft_printf(const char *str, ...);
 
 /*
-**	Data structure functions
+**	Structure functions
 */
 
-t_printf		*new_prst(void);
-void			init_prst(t_printf **p);
-int				fill_struct(char c, va_list ap, t_printf *t);
-int				ft_printf(const char *str, ...);
-int				ft_numlen(unsigned int nb, int base);
-int				ft_putnbr_base(unsigned int value, int base, int c);
-int				ft_putaddress_ll(void *address);
-int				ft_putfloat(float nbr, int afterpoint);
-int				ft_putdouble(double nbr, int afterpoint);
-int				ft_putnbr_u(unsigned int value, int xl);
-void			deal_width(int l, t_printf *t);
+t_print				*new_str(void);
+void				reset_str(t_print **t);
+void				delete_str(t_print **t);
+
+/*
+**	Additional functions
+*/
+
+int					ft_numlen(uintmax_t nbr, int base);
+int					ft_numlen_im(intmax_t nbr);
+void				ft_ls_di(intmax_t *nbr, t_print *t, va_list av);
+void				ft_putnbr_im(intmax_t nbr);
+void				di_av25(t_print *t, char sp, intmax_t *nbr, int *l);
 
 #endif

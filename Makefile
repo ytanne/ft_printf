@@ -6,21 +6,17 @@
 #    By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/27 18:05:44 by yorazaye          #+#    #+#              #
-#    Updated: 2019/11/05 20:39:06 by yorazaye         ###   ########.fr        #
+#    Updated: 2019/11/12 14:13:22 by yorazaye         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftprinf.a
+NAME = libftprintf.a
 
 SRC = src
 
 INC = includes
 
-OUT = bin
-
-F_N = ft_printf ft_init ft_base scdip_spec fwpl_check fwpl_assign uox_spec\
-		ft_putaddress ft_putfloat float_spec width_deal main
-
+F_N = ft_printf print_struct csdi fwpl ouUxX ft_ls_do others
 F_H = ft_printf.h
 
 F_C = $(patsubst %, $(SRC)/%, $(addsuffix .c, $(F_N)))
@@ -36,7 +32,7 @@ $(NAME):
 compile:
 	@make -C libft/
 	@gcc -c $(F_C) -I $(INC)
-	ar rc $(NAME) $(F_O)
+	ar rc $(NAME) $(F_O) libft/*.o
 	@ranlib $(NAME)
 
 debug: fclean

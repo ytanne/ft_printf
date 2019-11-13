@@ -5,39 +5,87 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/28 17:31:14 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/05 19:24:38 by yorazaye         ###   ########.fr       */
+/*   Created: 2019/11/06 23:56:45 by yorazaye          #+#    #+#             */
+/*   Updated: 2019/11/11 15:33:19 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "ft_printf.h"
+
+static int		print_init(const char *str, t_print *t, va_list av)
+{
+	char		*specifiers;
+	int			i;
+	int			l;
+
+	i = -1;
+	specifiers = "csdDiouUxXf%";
+	while (++i < 12)
+		if (*str == specifiers[i])
+			break ;
+	if (i == 10)
+		exit(0);
+	l = g_f_table[i](av, t);
+	return (l);
+}
+
+static int		find_spec(const char *str)
+{
+	int			i;
+	char		*specifiers;
+
+	i = -1;
+	specifiers = "csdDiouUxXf%";
+	while (str[++i] && (ft_strchr(specifiers, str[i]) == 0))
+		;
+	if (str[i] == '\0')
+		return (-1);
+	return (i);
+}
+
+static void		get_fwpl(char *str, t_print **t)
+{
+	int		i;
+
+	i = -1;
+	while (++i < 4)
+		g_fwpl[i]((char *)str, t);
+}
+
+static int		end_it_pls(va_list av, t_print **t, int numb)
+{
+	delete_str(t);
+	va_end(av);
+	return (numb);
+}
 
 int				ft_printf(const char *str, ...)
 {
-	va_list		ap;
-	int			i;
-	int			sh;
-	t_printf	*t;
+	va_list		av;
+	t_print		*t;
+	int			count[2];
+	char		*flags;
 
-	t = new_prst();
-	va_start(ap, str);
-	while (*str)
+	count[0] = 0;
+	va_start(av, str);
+	t = new_str();
+	while (*str != '\0')
 	{
-		if (*str == '%')
+		if (*str == '%' && (str++))
 		{
-			init_prst(&t);
-			i = 0;
-			while (i < 3)
-				if ((sh = g_fwpl[i++]((char *)(str), &t)))
-					str += sh;
-			fill_struct(*(++str), ap, t);
+			reset_str(&t);
+			if ((count[1] = find_spec(str)) >= 0)
+			{
+				flags = ft_strsub(str, 0, count[1]);
+				get_fwpl(flags, &t);
+				str += count[1];
+				count[0] += print_init((str++), t, av);
+				ft_strdel(&flags);
+			}
 		}
 		else
-			ft_putchar(*str);
-		str++;
+			ft_putchar(*(str++));
+		count[0]++;
 	}
-	ft_memdel((void **)&t);
-	va_end(ap);
-	return (0);
+	return (end_it_pls(av, &t, count[0]));
 }
