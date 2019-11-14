@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 01:06:21 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/13 18:30:37 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/13 20:41:59 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,6 +139,25 @@ void			u_av25(t_print *t, char sp, uintmax_t *nbr, int *l)
 	t->w_n += (*nbr == 0 && t->p_n == 0) ? 1 : 0;
 	while ((t->f_m == -1) && t->w_n-- > 0)
 		ft_putchar(sp);
+	if (t->f_p == 1 && sp == ' ')
+		ft_putchar('+');
+	while ((t->p_n--) - *l > 0)
+		ft_putchar('0');
+}
+
+void			x_av25(t_print *t, char sp, uintmax_t *nbr, int *l, int u)
+{
+	if (t->f_p == 1 && sp == '0')
+		ft_putchar('+');
+	if (t->f_p == 0 && t->f_s == 1)
+		ft_putchar(' ');
+	t->w_n += (*nbr == 0 && t->p_n == 0) ? 1 : 0;
+	if (*nbr != 0 && t->f_h == 1 && sp == '0')
+		(u == 0) ? ft_putstr("0x") : ft_putstr("0X");
+	while ((t->f_m == -1) && t->w_n-- > 0)
+		ft_putchar(sp);
+	if (*nbr != 0 && t->f_h == 1 && sp == ' ')
+		(u == 0) ? ft_putstr("0x") : ft_putstr("0X");
 	if (t->f_p == 1 && sp == ' ')
 		ft_putchar('+');
 	while ((t->p_n--) - *l > 0)

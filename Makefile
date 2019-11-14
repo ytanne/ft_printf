@@ -6,7 +6,7 @@
 #    By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/27 18:05:44 by yorazaye          #+#    #+#              #
-#    Updated: 2019/11/13 18:16:23 by yorazaye         ###   ########.fr        #
+#    Updated: 2019/11/13 20:44:23 by yorazaye         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ SRC = src
 
 INC = includes
 
-F_N = ft_printf print_struct csdi fwpl ouUxX ft_ls_do others
+F_N = ft_printf print_struct csdi fwpl ouUxX ft_ls_do ft_base\
+	others main
 F_H = ft_printf.h
 
 F_C = $(patsubst %, $(SRC)/%, $(addsuffix .c, $(F_N)))
