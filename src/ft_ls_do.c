@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 15:31:58 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/08 15:42:00 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/13 18:23:53 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,20 @@ void		ft_ls_o(uintmax_t *nbr, t_print *t, va_list av)
 		(*nbr) = (size_t)va_arg(av, unsigned long long int);
 	else
 		(*nbr) = (unsigned int)va_arg(av, unsigned int);
+}
+
+void		ft_ls_uox(uintmax_t *nbr, t_print *t, va_list av)
+{
+	if (t->s_l == 0)
+		(*nbr) = (unsigned char)va_arg(av, unsigned int);
+	else if (t->s_l == 1)
+		(*nbr) = (unsigned short int)va_arg(av, unsigned int);
+	else if (t->s_l == 2)
+		(*nbr) = va_arg(av, unsigned long int);
+	else if (t->s_l == 3)
+		(*nbr) = va_arg(av, unsigned long long int);
+	else if (t->s_l == 4)
+		(*nbr) = (size_t)va_arg(av, unsigned long long int);
+	else
+		(*nbr) = va_arg(av, unsigned int);
 }

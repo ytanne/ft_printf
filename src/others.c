@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 01:06:21 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/13 15:25:06 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/13 18:30:37 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,27 @@ void			ft_putnbr_im(intmax_t nbr)
 	ft_putchar((nbr % 10) + '0');
 }
 
+void			ft_putnbr_uim(uintmax_t nbr)
+{
+	if (nbr > 9)
+		ft_putnbr_uim(nbr / 10);
+	ft_putchar((nbr % 10) + '0');
+}
+
 int				ft_numlen_im(intmax_t nbr)
+{
+	int			l;
+
+	l = (nbr > 0) ? 0 : 1;
+	while (nbr)
+	{
+		nbr /= 10;
+		l++;
+	}
+	return (l);
+}
+
+int				ft_numlen_uim(uintmax_t nbr)
 {
 	int			l;
 
@@ -92,7 +112,6 @@ int				ft_numlen_im(intmax_t nbr)
 
 void			di_av25(t_print *t, char sp, intmax_t *nbr, int *l)
 {
-
 	if (t->f_p == 1 && sp == '0' && *nbr >= 0)
 		ft_putchar('+');
 	*l -= (*nbr < 0) ? 1 : 0;
@@ -100,12 +119,28 @@ void			di_av25(t_print *t, char sp, intmax_t *nbr, int *l)
 		ft_putchar(' ');
 	if (sp == '0' && *nbr < 0 && (*nbr *= -1))
 		ft_putchar('-');
+	t->w_n += (*nbr == 0 && t->p_n == 0) ? 1 : 0;
 	while ((t->f_m == -1) && t->w_n-- > 0)
 		ft_putchar(sp);
 	if (t->f_p == 1 && sp == ' ' && *nbr >= 0)
 		ft_putchar('+');
 	if (*nbr < 0 && (*nbr *= -1))
 		ft_putchar('-');
+	while ((t->p_n--) - *l > 0)
+		ft_putchar('0');
+}
+
+void			u_av25(t_print *t, char sp, uintmax_t *nbr, int *l)
+{
+	if (t->f_p == 1 && sp == '0')
+		ft_putchar('+');
+	if (t->f_p == 0 && t->f_s == 1)
+		ft_putchar(' ');
+	t->w_n += (*nbr == 0 && t->p_n == 0) ? 1 : 0;
+	while ((t->f_m == -1) && t->w_n-- > 0)
+		ft_putchar(sp);
+	if (t->f_p == 1 && sp == ' ')
+		ft_putchar('+');
 	while ((t->p_n--) - *l > 0)
 		ft_putchar('0');
 }

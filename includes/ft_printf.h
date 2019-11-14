@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 18:14:35 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/12 12:02:48 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/13 18:30:52 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,8 +107,13 @@ void				delete_str(t_print **t);
 
 int					ft_numlen(uintmax_t nbr, int base);
 int					ft_numlen_im(intmax_t nbr);
+int					ft_numlen_uim(uintmax_t nbr);
 void				ft_ls_di(intmax_t *nbr, t_print *t, va_list av);
+void				ft_ls_uox(uintmax_t *nbr, t_print *t, va_list av);
 void				ft_putnbr_im(intmax_t nbr);
+void				ft_putnbr_uim(uintmax_t nbr);
 void				di_av25(t_print *t, char sp, intmax_t *nbr, int *l);
+void				u_av25(t_print *t, char sp, uintmax_t *nbr, int *l);
+
 
 #endif
