@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 00:53:28 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/12 14:01:50 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/13 15:34:45 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int			di_spec(va_list av, t_print *t)
 	-l[2] - l[3];
 	l[1] = t->w_n;
 	di_av25(t, sp, &nbr, &(l[0]));
-	ft_putnbr_im(nbr);
+	(nbr == 0 && t->p_n == -1) ? ft_putstr("") : ft_putnbr_im(nbr);
 	while ((t->f_m == 1) && t->w_n-- > 0)
 		ft_putchar(sp);
 	return (l[1] + l[0]);
