@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 18:14:35 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/13 20:42:51 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/13 20:55:32 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,7 @@ void				ft_putnbr_im(intmax_t nbr);
 void				ft_putnbr_uim(uintmax_t nbr);
 void				di_av25(t_print *t, char sp, intmax_t *nbr, int *l);
 void				u_av25(t_print *t, char sp, uintmax_t *nbr, int *l);
+void				o_av25(t_print *t, char sp, uintmax_t *nbr, int *l);
 void				x_av25(t_print *t, char sp, uintmax_t *nbr, int *l, int u);
 
 
