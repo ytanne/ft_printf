@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 01:03:20 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/12 11:04:58 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/14 22:32:42 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int     flag_check(char *str, t_print **t)
     else if (*str == '#')
         (*t)->f_h = 1;
     else if (*str == '0')
-        if (*(str - 1) && !ft_isdigit(*(str - 1)))
+        if (*(str - 1) && !ft_isdigit(*(str - 1)) && *(str - 1) != '.')
             (*t)->f_z = 1;
     return (flag_check(++str, t));
 }

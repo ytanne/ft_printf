@@ -6,7 +6,7 @@
 #    By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/27 18:05:44 by yorazaye          #+#    #+#              #
-#    Updated: 2019/11/14 17:20:53 by yorazaye         ###   ########.fr        #
+#    Updated: 2019/11/14 17:37:05 by yorazaye         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRC = src
 INC = includes
 
 F_N = ft_printf print_struct cspdi fwpl oufxX ft_ls_do ft_base\
-	ft_putaddress dipuxo_av25 others main
+	ft_putaddress dipuxo_av25 ft_putdouble others main
 F_H = ft_printf.h
 
 F_C = $(patsubst %, $(SRC)/%, $(addsuffix .c, $(F_N)))

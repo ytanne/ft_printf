@@ -6,18 +6,13 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 01:06:21 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/14 17:20:11 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/14 17:22:08 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 int				D_spec(va_list av, t_print *t)
-{
-    return (1);
-}
-
-int				f_spec(va_list av, t_print *t)
 {
     return (1);
 }

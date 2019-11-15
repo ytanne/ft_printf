@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ouUxX.c                                            :+:      :+:    :+:   */
+/*   oufxX.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 15:20:59 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/14 16:21:16 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/15 13:35:57 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,19 +102,27 @@ int				xl_spec(va_list av, t_print *t)
 
 int			f_spec(va_list av, t_print *t)
 {
-	int		r;
-	double	nbr;
-	int		prc;
-	int		l;
+	int			r;
+	int			prc;
+	int			l[2];
+	char		sp;
+	long double	nbr;
 
-	nbr = (double)va_arg(av, double);
-	l = ((prc = t->p_n) > 0) ?\
-	t->w_n - ft_numlen((int)nbr, 10) - prc - t->f_p - 1 :\
-	t->w_n - ft_numlen((int)nbr, 10) - t->f_p;
-	while (l-- > 0)
-		ft_putchar(' ');
-	if (nbr >= 0 && t->f_p == 1)
+	ft_ls_d(&nbr, t, av);
+	sp = (t->f_z == 1 && t->f_m == -1) ? '0' : ' ';
+	l[0] = ft_numlen((int)nbr, 10);
+	l[0] += (nbr < 0.0) ? 1 : 0;
+	t->p_n = (t->p_n == -1) ? 6 : t->p_n;
+	t->w_n += ((prc = t->p_n) > 0 || t->f_h == 1) ?
+	-l[0] - prc - t->f_p - 1 : -l[0] - t->f_p;
+	if (nbr >= 0 && t->f_p == 1 && (sp == '0' || t->w_n <= 0))
 		ft_putchar('+');
-	r = ft_putfloat(nbr, prc);
+	if (nbr <= 0 && sp == '0')
+		ft_putchar('-');
+	while (t->f_m == -1 && t->w_n-- > 0)
+		ft_putchar(sp);
+	r = ft_putdouble(nbr, prc, t->f_h, (sp == '0'));
+	while (t->f_m == 1 && t->w_n-- > 0)
+		ft_putchar(' ');
 	return (r);
 }

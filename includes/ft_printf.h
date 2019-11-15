@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 18:14:35 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/14 15:57:54 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/14 22:37:24 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ int					di_spec(va_list av, t_print *t);
 int					D_spec(va_list av, t_print *t);
 int					o_spec(va_list av, t_print *t);
 int					u_spec(va_list av, t_print *t);
-int					U_spec(va_list av, t_print *t);
 int					x_spec(va_list av, t_print *t);
 int					xl_spec(va_list av, t_print *t);
 int					f_spec(va_list av, t_print *t);
@@ -78,11 +77,9 @@ static t_specifier	*g_f_table[] =
 	s_spec,
 	p_spec,
 	di_spec,
-	D_spec,
 	di_spec,
 	o_spec,
 	u_spec,
-	U_spec,
 	x_spec,
 	xl_spec,
 	f_spec,
@@ -112,8 +109,10 @@ int					ft_numlen_im(intmax_t nbr);
 int					ft_numlen_uim(uintmax_t nbr);
 int					ft_putaddress(uintmax_t value);
 int					ft_numlen_base(uintmax_t nb, int base);
+int					ft_putdouble(long double n, int afterpoint, int h1, int h2);
 int					ft_putnbr_base(uintmax_t value, int base, int xl);
 void				ft_ls_di(intmax_t *nbr, t_print *t, va_list av);
+void				ft_ls_d(long double *nbr, t_print *t, va_list av);
 void				ft_ls_uox(uintmax_t *nbr, t_print *t, va_list av);
 void				ft_putnbr_im(intmax_t nbr);
 void				ft_putnbr_uim(uintmax_t nbr);

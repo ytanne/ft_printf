@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 15:31:58 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/13 18:23:53 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/14 17:31:33 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void		ft_ls_di(intmax_t *nbr, t_print *t, va_list av)
 		(*nbr) = (int)va_arg(av, int);
 }
 
+/* Can be deleted
 void		ft_ls_o(uintmax_t *nbr, t_print *t, va_list av)
 {
 	if (t->s_l == 0)
@@ -43,6 +44,7 @@ void		ft_ls_o(uintmax_t *nbr, t_print *t, va_list av)
 	else
 		(*nbr) = (unsigned int)va_arg(av, unsigned int);
 }
+*/
 
 void		ft_ls_uox(uintmax_t *nbr, t_print *t, va_list av)
 {
@@ -59,3 +61,12 @@ void		ft_ls_uox(uintmax_t *nbr, t_print *t, va_list av)
 	else
 		(*nbr) = va_arg(av, unsigned int);
 }
+
+void		ft_ls_d(long double *nbr, t_print *t, va_list av)
+{
+	if (t->s_l == 5)
+		(*nbr) = (long double)va_arg(av, long double);
+	else
+		(*nbr) = (double)va_arg(av, double);
+}
+
