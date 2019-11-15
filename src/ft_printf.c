@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 23:56:45 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/11 15:33:19 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/14 13:20:48 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ static int		print_init(const char *str, t_print *t, va_list av)
 	int			l;
 
 	i = -1;
-	specifiers = "csdDiouUxXf%";
-	while (++i < 12)
+	specifiers = "cspdDiouUxXf%";
+	while (++i < 13)
 		if (*str == specifiers[i])
 			break ;
-	if (i == 10)
+	if (i == 13)
 		exit(0);
 	l = g_f_table[i](av, t);
 	return (l);
@@ -35,7 +35,7 @@ static int		find_spec(const char *str)
 	char		*specifiers;
 
 	i = -1;
-	specifiers = "csdDiouUxXf%";
+	specifiers = "cspdDiouUxXf%";
 	while (str[++i] && (ft_strchr(specifiers, str[i]) == 0))
 		;
 	if (str[i] == '\0')

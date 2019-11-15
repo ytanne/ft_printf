@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   csdi.c                                             :+:      :+:    :+:   */
+/*   cspdi.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 00:53:28 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/13 18:28:06 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/14 15:59:15 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,29 @@ int			s_spec(va_list av, t_print *t)
 	while ((t->f_m == 1) && t->w_n-- > 0)
 		ft_putchar(sp);
 	return (l[1]);
+}
+
+int			p_spec(va_list av, t_print *t)
+{
+	uintmax_t	add;
+	char		fill;
+	int			l[2];
+	int			pc;
+
+	add = va_arg(av, uintmax_t);
+	l[0] = ft_numlen_base(add, 16) + 2;
+	pc = t->p_n - l[0];
+	if (add != 0)
+		t->w_n += (t->p_n > 0) ? -l[0] - pc : -l[0];
+	else
+		t->w_n -= 3;
+	l[1] = t->w_n;
+	fill = (t->f_z == 1 && t->p_n < 0) ? '0' : ' ';
+	p_av25(t, fill, pc);
+	ft_putaddress(add);
+	while (t->f_m == 1 && t->w_n-- > 0)
+		ft_putchar(fill);
+	return (l[0] + l[1]);
 }
 
 int			di_spec(va_list av, t_print *t)
