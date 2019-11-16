@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 00:16:01 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/16 00:09:37 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/16 01:26:39 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int			main(void)
 {	
-	ft_printf("%Lf\n", 0.000039l);
-	printf("%Lf\n", 0.000039l);
+	ft_printf("%Lf\n", -3.85l);
+	printf("%Lf\n", -3.85l);
 	return (0);
 }

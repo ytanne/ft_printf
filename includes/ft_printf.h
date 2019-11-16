@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 18:14:35 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/15 13:59:18 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/16 00:54:03 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,12 +104,14 @@ void				delete_str(t_print **t);
 **	Additional functions
 */
 
+long double			ft_pow_ui(int ap);
 int					ft_numlen(uintmax_t nbr, int base);
 int					ft_numlen_im(intmax_t nbr);
 int					ft_numlen_uim(uintmax_t nbr);
 int					ft_putaddress(uintmax_t value);
 int					ft_numlen_base(uintmax_t nb, int base);
-int					ft_putdouble(long double n, int ap, t_print *t, char sp);
+int					ft_putd(long double n, int ap, t_print *t, char sp);
+int					ft_putd_l(long double n, int ap, t_print *t, char sp);
 int					ft_putnbr_base(uintmax_t value, int base, int xl);
 void				ft_ls_di(intmax_t *nbr, t_print *t, va_list av);
 void				ft_ls_d(long double *nbr, t_print *t, va_list av);

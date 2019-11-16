@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 15:20:59 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/15 15:12:17 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/16 00:52:16 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,8 @@ int			f_spec(va_list av, t_print *t)
 		ft_putchar(' ');
 	while (t->f_m == -1 && t->w_n-- > 0)
 		ft_putchar(sp);
-	r = ft_putdouble(nbr, prc, t, sp);
+	r = (t->s_l != 5) ? ft_putd(nbr, prc, t, sp) :\
+	ft_putd_l(nbr, prc, t, sp);
 	while (t->f_m == 1 && t->w_n-- > 0)
 		ft_putchar(' ');
 	return (r);
