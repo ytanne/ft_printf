@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 15:20:59 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/15 13:35:57 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/15 15:12:17 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,18 +110,21 @@ int			f_spec(va_list av, t_print *t)
 
 	ft_ls_d(&nbr, t, av);
 	sp = (t->f_z == 1 && t->f_m == -1) ? '0' : ' ';
-	l[0] = ft_numlen((int)nbr, 10);
-	l[0] += (nbr < 0.0) ? 1 : 0;
+	l[0] = ft_numlen_im((int)nbr);
+	l[0] -= (nbr < 0.0 && t->f_p == 1) ? 1 : 0;
 	t->p_n = (t->p_n == -1) ? 6 : t->p_n;
+	t->f_s += (nbr < 0.0 && t->f_s == 1) ? -1 : 0;
 	t->w_n += ((prc = t->p_n) > 0 || t->f_h == 1) ?
-	-l[0] - prc - t->f_p - 1 : -l[0] - t->f_p;
-	if (nbr >= 0 && t->f_p == 1 && (sp == '0' || t->w_n <= 0))
+	-l[0] - prc - t->f_p - 1 - t->f_s: -l[0] - t->f_p - t->f_s;
+	if (nbr >= 0 && t->f_p == 1 && sp == '0')
 		ft_putchar('+');
 	if (nbr <= 0 && sp == '0')
 		ft_putchar('-');
+	if (t->f_s == 1 && t->f_p == 0 && nbr >= 0.0)
+		ft_putchar(' ');
 	while (t->f_m == -1 && t->w_n-- > 0)
 		ft_putchar(sp);
-	r = ft_putdouble(nbr, prc, t->f_h, (sp == '0'));
+	r = ft_putdouble(nbr, prc, t, sp);
 	while (t->f_m == 1 && t->w_n-- > 0)
 		ft_putchar(' ');
 	return (r);

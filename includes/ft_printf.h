@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 18:14:35 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/14 22:37:24 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/15 13:59:18 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ int					ft_numlen_im(intmax_t nbr);
 int					ft_numlen_uim(uintmax_t nbr);
 int					ft_putaddress(uintmax_t value);
 int					ft_numlen_base(uintmax_t nb, int base);
-int					ft_putdouble(long double n, int afterpoint, int h1, int h2);
+int					ft_putdouble(long double n, int ap, t_print *t, char sp);
 int					ft_putnbr_base(uintmax_t value, int base, int xl);
 void				ft_ls_di(intmax_t *nbr, t_print *t, va_list av);
 void				ft_ls_d(long double *nbr, t_print *t, va_list av);
