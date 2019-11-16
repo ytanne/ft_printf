@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 17:19:37 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/16 01:49:57 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/16 02:20:02 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,15 @@ static void			deal_afterpoint(int ap, long double *rr)
 	long double diff;
 
 	ft_putchar('.');
+	if (rr[1] < rr[0])
+		rr[0] = 0;
 	diff = (rr[1] - rr[0]) / 10;
 	while (ap--)
 	{
 		rr[0] *= 10.0;
-        diff *= 10.0;
-        first = (int)(rr[0] + diff);
+		diff *= 10.0;
+		first = (ap == 0 && diff > 0.0) ? (int)(rr[0] + 1) :
+		(int)(rr[0] + diff);
 		rr[0] -= (long double)first;
 		ft_putnbr(first);
 	}
@@ -62,8 +65,9 @@ int					ft_putd_l(long double n, int ap, t_print *t, char sp)
 	if ((remainder[0] = n - (long double)first) < 0)
 		remainder[0] *= -1;
 	remainder[1] = ft_roundup(remainder[0], ap);
-	first += (int)remainder[0];
-	remainder[0] -= ((int)remainder[0] > 0) ? 1.0 : 0.0;
+	first += (t->p_n != 6 || first != 0) ? (int)remainder[1] : 0;
+	remainder[1] -= ((int)remainder[1] > 0
+	&& (t->p_n != 6 || first != 0)) ? 1.0 : 0.0;
 	ft_putnbr(first);
 	if (ap == 0 && t->f_h == -1)
 		return (ft_numlen(first, 10));
