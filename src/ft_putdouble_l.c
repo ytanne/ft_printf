@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 17:19:37 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/16 02:20:02 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/16 02:53:30 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,14 @@ static void			deal_afterpoint(int ap, long double *rr)
 	ft_putchar('.');
 	if (rr[1] < rr[0])
 		rr[0] = 0;
-	diff = (rr[1] - rr[0]) / 10;
+	diff = (rr[1] - rr[0]);
 	while (ap--)
 	{
 		rr[0] *= 10.0;
 		diff *= 10.0;
-		first = (ap == 0 && diff > 0.0) ? (int)(rr[0] + 1) :
+		first = (ap == 0 && diff > 1) ? (int)(rr[0] + 1) :
 		(int)(rr[0] + diff);
-		rr[0] -= (long double)first;
+		rr[0] -= (long double)(first);
 		ft_putnbr(first);
 	}
 }
