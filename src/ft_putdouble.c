@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 17:19:37 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/16 00:53:24 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/16 16:11:23 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static void			ft_roundup(long double *n, int afterpoint)
 		*n = *n + 1.0 / pwr;
 }
 
-static void			deal_afterpoint(int ap, long double rr)
+static void			deal_ap(int ap, long double rr)
 {
 	int		first;
 
@@ -58,7 +58,7 @@ static void			deal_afterpoint(int ap, long double rr)
 int					ft_putd(long double n, int ap, t_print *t, char sp)
 {
 	int			temp;
-	int			first;
+	intmax_t	first;
 	long double	remainder;
 
 	temp = ap;
@@ -66,15 +66,15 @@ int					ft_putd(long double n, int ap, t_print *t, char sp)
 		ft_putchar('+');
 	if (n < 0 && (n *= -1) && sp == ' ')
 		ft_putchar('-');
-	first = (int)n;
+	first = (intmax_t)n;
 	if ((remainder = n - (long double)first) < 0)
 		remainder *= -1;
 	ft_roundup(&remainder, ap);
-	first += (int)remainder;
+	first += (intmax_t)remainder;
 	remainder -= ((int)remainder > 0) ? 1.0 : 0.0;
-	ft_putnbr(first);
+	ft_putnbr_im(first);
 	if (ap == 0 && t->f_h == -1)
 		return (ft_numlen(first, 10));
-	deal_afterpoint(ap, remainder);
+	deal_ap(ap, remainder);
 	return (ft_numlen(first, 10) + 1 + temp);
 }
