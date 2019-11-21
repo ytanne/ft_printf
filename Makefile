@@ -6,7 +6,7 @@
 #    By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/27 18:05:44 by yorazaye          #+#    #+#              #
-#    Updated: 2019/11/16 00:53:02 by yorazaye         ###   ########.fr        #
+#    Updated: 2019/11/19 16:54:53 by yorazaye         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,10 @@ SRC = src
 
 INC = includes
 
-F_N = ft_printf print_struct cspdi fwpl oufxX ft_ls_do ft_base\
+F_N = ft_printf print_struct cspdi fwpl oufxxl ft_ls_do ft_base\
 	ft_putaddress dipuxo_av25 ft_putdouble ft_putdouble_l\
-	others main
+	others ft_extra
+
 F_H = ft_printf.h
 
 F_C = $(patsubst %, $(SRC)/%, $(addsuffix .c, $(F_N)))
@@ -28,10 +29,6 @@ F_O = $(addsuffix .o, $(F_N))
 all: $(NAME)
 
 $(NAME):
-	@make -C libft/
-	gcc -o test $(F_C) -I $(INC) -L libft -lft
-
-compile:
 	@make -C libft/
 	@gcc -c $(F_C) -I $(INC)
 	ar rc $(NAME) $(F_O) libft/*.o

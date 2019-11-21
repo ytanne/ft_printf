@@ -6,11 +6,23 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 17:19:37 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/16 16:11:23 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/19 10:33:08 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+void				f_av25(t_print *t, char sp, long double *nbr)
+{
+	if (*nbr >= 0 && t->f_p == 1 && sp == '0')
+		ft_putchar('+');
+	if (*nbr <= 0 && sp == '0')
+		ft_putchar('-');
+	if (t->f_s == 1 && t->f_p == 0 && *nbr >= 0.0)
+		ft_putchar(' ');
+	while (t->f_m == -1 && t->w_n-- > 0)
+		ft_putchar(sp);
+}
 
 long double			ft_pow_ui(int ap)
 {
@@ -74,7 +86,7 @@ int					ft_putd(long double n, int ap, t_print *t, char sp)
 	remainder -= ((int)remainder > 0) ? 1.0 : 0.0;
 	ft_putnbr_im(first);
 	if (ap == 0 && t->f_h == -1)
-		return (ft_numlen(first, 10));
+		return (ft_numlen_im(first));
 	deal_ap(ap, remainder);
-	return (ft_numlen(first, 10) + 1 + temp);
+	return (ft_numlen_im(first) + 1 + temp);
 }

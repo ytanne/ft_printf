@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 23:56:45 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/14 17:40:19 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/18 19:32:58 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,22 +43,6 @@ static int		find_spec(const char *str)
 	return (i);
 }
 
-static void		get_fwpl(char *str, t_print **t)
-{
-	int		i;
-
-	i = -1;
-	while (++i < 4)
-		g_fwpl[i]((char *)str, t);
-}
-
-static int		end_it_pls(va_list av, t_print **t, int numb)
-{
-	delete_str(t);
-	va_end(av);
-	return (numb);
-}
-
 int				ft_printf(const char *str, ...)
 {
 	va_list		av;
@@ -66,26 +50,24 @@ int				ft_printf(const char *str, ...)
 	int			count[2];
 	char		*flags;
 
-	count[0] = 0;
 	va_start(av, str);
-	t = new_str();
+	get_started(count, (char *)str, &t);
 	while (*str != '\0')
 	{
-		if (*str == '%' && (str++))
+		if (*str == '%' && (str++) && (reset_str(&t)) &&
+		(count[1] = find_spec(str)) >= 0)
 		{
-			reset_str(&t);
-			if ((count[1] = find_spec(str)) >= 0)
-			{
-				flags = ft_strsub(str, 0, count[1]);
-				get_fwpl(flags, &t);
-				str += count[1];
-				count[0] += print_init((str++), t, av);
-				ft_strdel(&flags);
-			}
+			flags = ft_strsub(str, 0, count[1]);
+			get_fwpl(flags, &t);
+			str += count[1];
+			count[0] += print_init((str++), t, av);
+			ft_strdel(&flags);
+			count[1] = 0;
 		}
-		else
+		else if (count[1] == 0 && *str && (count[0]++) >= 0)
 			ft_putchar(*(str++));
-		count[0]++;
+		else
+			str++;
 	}
 	return (end_it_pls(av, &t, count[0]));
 }

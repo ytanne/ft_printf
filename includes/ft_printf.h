@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 18:14:35 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/16 00:54:03 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/18 19:29:32 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ typedef struct		s_print
 	int				s_l;
 }					t_print;
 
-typedef int			t_fwpl(char *str, t_print **t);
+typedef void		t_fwpl(char *str, t_print **t);
 
-int					flag_check(char *str, t_print **t);
-int					width_check(char *str, t_print **t);
-int					precision_check(char *str, t_print **t);
-int					length_check(char *str, t_print **t);
+void				flag_check(char *str, t_print **t);
+void				width_check(char *str, t_print **t);
+void				precision_check(char *str, t_print **t);
+void				length_check(char *str, t_print **t);
 
 static t_fwpl		*g_fwpl[] =
 {
@@ -58,7 +58,6 @@ int					c_spec(va_list av, t_print *t);
 int					s_spec(va_list av, t_print *t);
 int					p_spec(va_list av, t_print *t);
 int					di_spec(va_list av, t_print *t);
-int					D_spec(va_list av, t_print *t);
 int					o_spec(va_list av, t_print *t);
 int					u_spec(va_list av, t_print *t);
 int					x_spec(va_list av, t_print *t);
@@ -97,7 +96,7 @@ int					ft_printf(const char *str, ...);
 */
 
 t_print				*new_str(void);
-void				reset_str(t_print **t);
+int					reset_str(t_print **t);
 void				delete_str(t_print **t);
 
 /*
@@ -105,7 +104,6 @@ void				delete_str(t_print **t);
 */
 
 long double			ft_pow_ui(int ap);
-int					ft_numlen(uintmax_t nbr, int base);
 int					ft_numlen_im(intmax_t nbr);
 int					ft_numlen_uim(uintmax_t nbr);
 int					ft_putaddress(uintmax_t value);
@@ -113,17 +111,19 @@ int					ft_numlen_base(uintmax_t nb, int base);
 int					ft_putd(long double n, int ap, t_print *t, char sp);
 int					ft_putd_l(long double n, int ap, t_print *t, char sp);
 int					ft_putnbr_base(uintmax_t value, int base, int xl);
+int					end_it_pls(va_list av, t_print **t, int numb);
+void				get_fwpl(char *str, t_print **t);
 void				ft_ls_di(intmax_t *nbr, t_print *t, va_list av);
 void				ft_ls_d(long double *nbr, t_print *t, va_list av);
 void				ft_ls_uox(uintmax_t *nbr, t_print *t, va_list av);
 void				ft_putnbr_im(intmax_t nbr);
 void				ft_putnbr_uim(uintmax_t nbr);
 void				p_av25(t_print *t, char sp, int pc);
-void				di_av25(t_print *t, char sp, intmax_t *nbr, int *l);
+void				f_av25(t_print *t, char sp, long double *nbr);
+void				di_av25(t_print *t, char sp, intmax_t *nbr, int l);
 void				u_av25(t_print *t, char sp, uintmax_t *nbr, int *l);
 void				o_av25(t_print *t, char sp, uintmax_t *nbr, int *l);
-void				x_av25(t_print *t, char sp, uintmax_t *nbr, int *l, int u);
-
-
+void				x_av25(t_print *t, char sp, uintmax_t *nbr, int *l);
+void				get_started(int *c, char *str, t_print **t);
 
 #endif

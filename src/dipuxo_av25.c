@@ -6,17 +6,17 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/14 16:01:59 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/15 14:45:37 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/18 13:43:08 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void			di_av25(t_print *t, char sp, intmax_t *nbr, int *l)
+void			di_av25(t_print *t, char sp, intmax_t *nbr, int l)
 {
 	if (t->f_p == 1 && sp == '0' && *nbr >= 0)
 		ft_putchar('+');
-	*l -= (*nbr < 0) ? 1 : 0;
+	l -= (*nbr < 0) ? 1 : 0;
 	if (t->f_p == 0 && t->f_s == 1 && *nbr >= 0)
 		ft_putchar(' ');
 	if (sp == '0' && *nbr < 0 && (*nbr *= -1))
@@ -26,23 +26,17 @@ void			di_av25(t_print *t, char sp, intmax_t *nbr, int *l)
 		ft_putchar(sp);
 	if (t->f_p == 1 && sp == ' ' && *nbr >= 0)
 		ft_putchar('+');
-	if (*nbr < 0 && (*nbr *= -1))
+	if (*nbr < 0)
 		ft_putchar('-');
-	while ((t->p_n--) - *l > 0)
+	while ((t->p_n--) - l > 0)
 		ft_putchar('0');
 }
 
 void			u_av25(t_print *t, char sp, uintmax_t *nbr, int *l)
 {
-	if (t->f_p == 1 && sp == '0')
-		ft_putchar('+');
-	if (t->f_p == 0 && t->f_s == 1)
-		ft_putchar(' ');
 	t->w_n += (*nbr == 0 && t->p_n == 0) ? 1 : 0;
 	while ((t->f_m == -1) && t->w_n-- > 0)
 		ft_putchar(sp);
-	if (t->f_p == 1 && sp == ' ')
-		ft_putchar('+');
 	while ((t->p_n--) - *l > 0)
 		ft_putchar('0');
 }
@@ -58,18 +52,18 @@ void			o_av25(t_print *t, char sp, uintmax_t *nbr, int *l)
 		ft_putstr("0");
 	while ((t->p_n--) - *l > 0)
 		ft_putchar('0');
+	*l -= (*nbr != 0 && t->f_h == 1) ? 1 : 0;
 }
 
-void			x_av25(t_print *t, char sp, uintmax_t *nbr, int *l, int u)
+void			x_av25(t_print *t, char sp, uintmax_t *nbr, int *l)
 {
-	t->w_n += (*nbr == 0 && t->p_n == 0) ? 1 : 0;
 	if (*nbr != 0 && t->f_h == 1 && sp == '0')
-		(u == 0) ? ft_putstr("0x") : ft_putstr("0X");
+		(l[3] == 0) ? ft_putstr("0x") : ft_putstr("0X");
 	while ((t->f_m == -1) && t->w_n-- > 0)
 		ft_putchar(sp);
 	if (*nbr != 0 && t->f_h == 1 && sp == ' ')
-		(u == 0) ? ft_putstr("0x") : ft_putstr("0X");
-	while ((t->p_n--) - *l > 0)
+		(l[3] == 0) ? ft_putstr("0x") : ft_putstr("0X");
+	while ((t->p_n--) - l[0] > 0)
 		ft_putchar('0');
 }
 

@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 13:27:59 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/14 11:30:10 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/17 14:46:32 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,22 @@ int				ft_putaddress(uintmax_t value)
 	ft_putstr(c);
 	ft_strdel(&c);
 	return (l);
+}
+
+int				pr_spec(va_list av, t_print *t)
+{
+	char		pc;
+	char		sp;
+	int			l;
+
+	pc = '%';
+	sp = (t->f_z == 1 && t->f_m == -1) ? '0' : ' ';
+	t->w_n -= 1;
+	l = (t->w_n == -1) ? 0 : t->w_n;
+	while ((t->f_m == -1) && t->w_n-- > 0)
+		ft_putchar(sp);
+	ft_putchar(pc);
+	while ((t->f_m == 1) && t->w_n-- > 0)
+		ft_putchar(sp);
+	return (1 + l);
 }
