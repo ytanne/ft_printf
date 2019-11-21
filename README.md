@@ -1,6 +1,25 @@
 # ft_printf
 The goal of project is to discover a feature of the C language – variadic functions, and to practice detailed management of the printing options.
 
+# Description
+This project teaches how to use variadic functions and function dispatch table. The thing that didn't take into consideration is to write **CLEAN CODE**. Therefore my work can be a little bit messy and hard to understand. But I admit my mess, and it will serve me as a reminder how a "dirty" code can cause a problem as soon as the project escalates.
+So... You, the person who is reading this page and searching for the tips how to start this project... Before you the start, learn how to write **clean code**. You will thank me later.
+
+# Installation
+Clone the repository to a directory.
+```
+git clone https://github.com/ytanne/ft_printf.git ft_printf
+```
+Run make to get `libftprintf.a` library.
+```
+cd ft_printf && make && make clean
+```
+Finally, include `libftprintf.a` in your compilation of binary file.
+For example, create a `test.c` file in a directory where you cloned ft_printf and run the following command:
+```
+gcc -o test test.c -L . -lftprintf.a -I ft_printf/includes
+```
+
 # P.S.
 
 Here is a list of motivational posters you can find in the office of Barney Stinson in the various seasons of How I Met Your Mother:
