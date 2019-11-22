@@ -6,14 +6,14 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 18:14:35 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/21 17:34:08 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/18 19:29:32 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include "libft.h"
+# include "../libft/includes/libft.h"
 # include <stdarg.h>
 # include <stdlib.h>
 
@@ -124,6 +124,6 @@ void				di_av25(t_print *t, char sp, intmax_t *nbr, int l);
 void				u_av25(t_print *t, char sp, uintmax_t *nbr, int *l);
 void				o_av25(t_print *t, char sp, uintmax_t *nbr, int *l);
 void				x_av25(t_print *t, char sp, uintmax_t *nbr, int *l);
-void				get_started(int *c, t_print **t);
+void				get_started(int *c, char *str, t_print **t);
 
 #endif
