@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 01:06:21 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/18 19:34:53 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/21 17:36:22 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void			ft_putnbr_im(intmax_t nbr)
 {
 	if (nbr < 0)
 	{
-		if (nbr == -9223372036854775808U)
+		if ((unsigned long)nbr == -9223372036854775808U)
 		{
 			ft_putnbr(9);
 			nbr = -223372036854775808;

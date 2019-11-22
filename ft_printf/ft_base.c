@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/30 01:20:53 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/20 14:52:54 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/21 17:33:32 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,22 +56,4 @@ int				ft_putnbr_base(uintmax_t value, int base, int xl)
 	ft_putstr(c);
 	free(c);
 	return (l[1]);
-}
-
-int				ft_putnbr_u(uintmax_t value, int xl)
-{
-	char	*c;
-	int		l;
-
-	l = ft_numlen_base(value, 10);
-	c = ft_strnew(l);
-	c[l] = '\0';
-	while (l >= 0)
-	{
-		c[--l] = value % 10 + '0';
-		value /= 10;
-	}
-	ft_putstr(c);
-	ft_strdel(&c);
-	return (l);
 }

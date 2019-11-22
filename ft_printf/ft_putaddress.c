@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 13:27:59 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/17 14:46:32 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/21 17:34:50 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int				pr_spec(va_list av, t_print *t)
 	char		sp;
 	int			l;
 
+	av = 0;
 	pc = '%';
 	sp = (t->f_z == 1 && t->f_m == -1) ? '0' : ' ';
 	t->w_n -= 1;

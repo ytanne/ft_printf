@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 00:53:28 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/19 16:43:22 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/21 17:32:54 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,6 @@ int			di_spec(va_list av, t_print *t)
 	intmax_t	nbr;
 	int			l[5];
 	char		sp;
-	int			c;
 
 	ft_ls_di(&nbr, t, av);
 	sp = (t->f_m == -1 && t->f_z == 1 && t->p_n == -1) ? '0' : ' ';

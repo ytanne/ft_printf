@@ -6,7 +6,7 @@
 /*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 19:38:08 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/19 16:54:32 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/21 17:36:43 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int				o_spec(va_list av, t_print *t)
 	uintmax_t	nbr;
 	int			l[4];
 	char		sp;
-	int			c;
 
 	ft_ls_uox(&nbr, t, av);
 	sp = (t->f_m == -1 && t->f_z == 1 && t->p_n == -1) ? '0' : ' ';
@@ -43,7 +42,6 @@ int				u_spec(va_list av, t_print *t)
 	uintmax_t	nbr;
 	int			l[4];
 	char		sp;
-	int			c;
 
 	ft_ls_uox(&nbr, t, av);
 	sp = (t->f_z == 1 && t->p_n == -1) ? '0' : ' ';
@@ -66,7 +64,6 @@ int				x_spec(va_list av, t_print *t)
 	uintmax_t	nbr;
 	int			l[5];
 	char		sp;
-	int			c;
 
 	ft_ls_uox(&nbr, t, av);
 	sp = (t->f_m == -1 && t->f_z == 1 && t->p_n == -1) ? '0' : ' ';
@@ -92,7 +89,6 @@ int				xl_spec(va_list av, t_print *t)
 	uintmax_t	nbr;
 	int			l[5];
 	char		sp;
-	int			c;
 
 	ft_ls_uox(&nbr, t, av);
 	sp = (t->f_m == -1 && t->f_z == 1 && t->p_n == -1) ? '0' : ' ';

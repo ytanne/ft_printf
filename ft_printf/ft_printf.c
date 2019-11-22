@@ -6,7 +6,7 @@
 /*   By: yorazaye <yorazaye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 23:56:45 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/18 19:32:58 by yorazaye         ###   ########.fr       */
+/*   Updated: 2019/11/21 17:34:22 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int				ft_printf(const char *str, ...)
 	char		*flags;
 
 	va_start(av, str);
-	get_started(count, (char *)str, &t);
+	get_started(count, &t);
 	while (*str != '\0')
 	{
 		if (*str == '%' && (str++) && (reset_str(&t)) &&

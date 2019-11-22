@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_extra.c                                         :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yorazaye <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/18 17:34:01 by yorazaye          #+#    #+#             */
-/*   Updated: 2019/11/18 17:47:12 by yorazaye         ###   ########.fr       */
+/*   Created: 2019/09/20 20:55:06 by yorazaye          #+#    #+#             */
+/*   Updated: 2019/09/26 13:07:05 by yorazaye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void		get_fwpl(char *str, t_print **t)
+void	ft_putnbr(int n)
 {
-	int		i;
-
-	i = -1;
-	while (++i < 4)
-		g_fwpl[i]((char *)str, t);
-}
-
-int			end_it_pls(va_list av, t_print **t, int numb)
-{
-	delete_str(t);
-	va_end(av);
-	return (numb);
-}
-
-void		get_started(int *count, char *str, t_print **t)
-{
-	count[0] = 0;
-	count[1] = 0;
-	*t = new_str();
+	if (n == -2147483648)
+		ft_putstr("-2147483648");
+	else
+	{
+		if (n >= -2147483648 && n < 0)
+		{
+			ft_putchar('-');
+			n *= -1;
+		}
+		if (n > 9)
+			ft_putnbr(n / 10);
+		ft_putchar((n % 10) + '0');
+	}
 }
